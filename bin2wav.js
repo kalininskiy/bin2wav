@@ -322,7 +322,7 @@ module.exports = async () => {
     const speedBoost = !!(argv['speed']);
     const toPlay = !!(argv['playMac']) || !!(argv['playLinux']) || !!(argv['playWin']);
 
-    // Проверяем считанный бинарний
+    // Проверяем считанный бинарный файл
     if (checkFile(binary)) {
         const baseName = outputFilePath.replace(/\..*?$/, '');
         binary = insertFileNameAndChekSum(binary, baseName);
