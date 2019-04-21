@@ -12,18 +12,21 @@ This software is distributed in the hope that it will be useful, but WITHOUT ANY
 ## Установка и использование
 
 Для разработчиков:
+
 	`git clone https://github.com/kalininskiy/bin2wav.git`
 
 Установка для использования:
+
 	`sudo npm install -g bin2wav-cli`
 
 Использование:
 
 ```bash
-bin2wav --input fileA.bin --output fileB.wav [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]
+bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]
 
     --input <ИмяФайла>: Имя/Путь входного бинарного файла для БК.
     --output <ИмяФайла>: Имя/Путь выходного WAV файла.
+    --overwrite: Перезаписать существующий выходной WAV файл.
     --model 11: для чтения на БК-0011[М] (на 17% быстрее), несовместимо с БК-0010[-01].
     --speed: Дополнительное ускорение на 11%.
     --playMac: Начать проигрывание WAV файла сразу после конвертации (Mac OS).

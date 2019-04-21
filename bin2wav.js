@@ -289,7 +289,7 @@ module.exports = async () => {
     console.log('\nCLI версия онлайн-конвертера: http://thesands.ru/bk0010/wav-converter/');
     console.log('Конвертер .bin-файлов БК в .wav-файлы для загрузки через магнитофонный вход\n');
 
-    console.log('Usage: \n bin2wav --input fileA.bin --output fileB.wav [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]\n');
+    console.log('Usage: \n bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]\n');
 
     // Проверяем обязательные параметры
     if (!validateArgs(argv)) {
@@ -298,11 +298,14 @@ module.exports = async () => {
 
     const inputFilePath = argv['input'];
     const outputFilePath = argv['output'];
+    const overwrite = !!(argv['overwrite']);
 
     // Проверяем отсутствие выходного файла
-    if (fs.existsSync(outputFilePath)) {
-        console.log(`Error! File '${outputFilePath}' already exists. Cancel...\n`);
-        return false;
+    if (!overwrite) {
+        if (fs.existsSync(outputFilePath)) {
+            console.log(`Error! File '${outputFilePath}' already exists. Cancel...\n`);
+            return false;
+        }
     }
 
     let binaryFile;
@@ -324,7 +327,7 @@ module.exports = async () => {
 
     // Проверяем считанный бинарный файл
     if (checkFile(binary)) {
-        const baseName = outputFilePath.replace(/\..*?$/, '');
+        const baseName = inputFilePath.replace(/\..*?$/, '');
         binary = insertFileNameAndChekSum(binary, baseName);
 
         console.log(`Start convert file: '${inputFilePath}' to '${outputFilePath}'\n`);

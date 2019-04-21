@@ -1,6 +1,6 @@
 {
   "name": "bin2wav-cli",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "BK binary to tape wav converter",
   "main": "bin2wav.js",
   "bin": {
