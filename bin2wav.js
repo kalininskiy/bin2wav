@@ -289,7 +289,7 @@ module.exports = async () => {
     console.log('\nCLI версия онлайн-конвертера: http://thesands.ru/bk0010/wav-converter/');
     console.log('Конвертер .bin-файлов БК в .wav-файлы для загрузки через магнитофонный вход\n');
 
-    console.log('Usage: \n bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]\n');
+    console.log('Usage: \n bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--play]\n');
 
     // Проверяем обязательные параметры
     if (!validateArgs(argv)) {
@@ -299,6 +299,7 @@ module.exports = async () => {
     const inputFilePath = argv['input'];
     const outputFilePath = argv['output'];
     const overwrite = !!(argv['overwrite']);
+    const platform = process.platform;
 
     // Проверяем отсутствие выходного файла
     if (!overwrite) {
@@ -323,7 +324,7 @@ module.exports = async () => {
 
     const model = (argv['model']) ? argv['model'] : '10';
     const speedBoost = !!(argv['speed']);
-    const toPlay = !!(argv['playMac']) || !!(argv['playLinux']) || !!(argv['playWin']);
+    const toPlay = !!(argv['play']);
 
     // Проверяем считанный бинарный файл
     if (checkFile(binary)) {
@@ -346,13 +347,13 @@ module.exports = async () => {
             console.log(`Playing WAV: ${outputFilePath}\n`);
             let playPath = '';
 
-            if (!!(argv['playMac'])) {
+            if (platform === 'darwin') {
                 playPath = `afplay ${outputFilePath}`;
             }
-            if (!!(argv['playLinux'])) {
+            if (platform === 'linux') {
                 playPath = `aplay ${outputFilePath}`;
             }
-            if (!!(argv['playWin'])) {
+            if (platform === 'win32') {
                 playPath = `start "${outputFilePath}"`;
             }
             const puts = (error, stdout, stderr) => {

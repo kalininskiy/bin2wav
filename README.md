@@ -22,16 +22,14 @@ This software is distributed in the hope that it will be useful, but WITHOUT ANY
 Использование:
 
 ```bash
-bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--playMac] [--playLinux] [--playWin]
+bin2wav --input fileA.bin --output fileB.wav [--overwrite] [--model 11] [--speed] [--play]
 
     --input <ИмяФайла>: Имя/Путь входного бинарного файла для БК.
     --output <ИмяФайла>: Имя/Путь выходного WAV файла.
     --overwrite: Перезаписать существующий выходной WAV файл.
     --model 11: для чтения на БК-0011[М] (на 17% быстрее), несовместимо с БК-0010[-01].
     --speed: Дополнительное ускорение на 11%.
-    --playMac: Начать проигрывание WAV файла сразу после конвертации (Mac OS).
-    --playLinux: Начать проигрывание WAV файла сразу после конвертации (Linux).
-    --playWin: Начать проигрывание WAV файла сразу после конвертации (Windows).
+    --play: Начать проигрывание WAV файла сразу после конвертации (Mac/Linux/Windows).
 ```
 
 ## Лицензия
