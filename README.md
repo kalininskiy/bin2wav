@@ -11,11 +11,10 @@ This software is distributed in the hope that it will be useful, but WITHOUT ANY
 ## Установка и использование
 
 Для разработчиков:
-
-​	`git clone https://github.com/kalininskiy/bin2wav.git`
+	`git clone https://github.com/kalininskiy/bin2wav.git`
 
 Установка для использования:
-    `sudo npm install -g bin2wav-cli`
+	`sudo npm install -g bin2wav-cli`
 
 Использование:
 
