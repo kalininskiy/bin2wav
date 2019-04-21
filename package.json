@@ -1,0 +1,34 @@
+{
+  "name": "bin2wav-cli",
+  "version": "1.0.0",
+  "description": "BK binary to tape wav converter",
+  "main": "bin2wav.js",
+  "bin": {
+    "bin2wav": "bin/bin2wav"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kalininskiy/bin2wav.git"
+  },
+  "keywords": [
+    "bk",
+    "bin2wav",
+    "converter",
+    "bk-0010",
+    "bk-0011m",
+    "retro",
+    "retrocomputing"
+  ],
+  "author": "https://t.me/bk0010_11m",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kalininskiy/bin2wav/issues"
+  },
+  "homepage": "https://github.com/kalininskiy/bin2wav#readme",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
